@@ -16,14 +16,14 @@ namespace PersonApi.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     PersonCode = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    ManagerIdId = table.Column<int>(type: "int", nullable: true)
+                    ManagerId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Persons", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Persons_Persons_ManagerIdId",
-                        column: x => x.ManagerIdId,
+                        name: "FK_Persons_Persons_ManagerId",
+                        column: x => x.ManagerId,
                         principalTable: "Persons",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -51,9 +51,9 @@ namespace PersonApi.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Persons_ManagerIdId",
+                name: "IX_Persons_ManagerId",
                 table: "Persons",
-                column: "ManagerIdId");
+                column: "ManagerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TimeOffs_PersonId",

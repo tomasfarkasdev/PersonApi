@@ -30,10 +30,10 @@ namespace PersonApi.Models
         /// </summary>
         public ICollection<TimeOffs> TimeOff { get; set; }
 
-        public Persons ManagerId { get; set; }
+        public Persons Manager { get; set; }
         //public virtual Persons Manager { get; set; }
 
-        public ICollection<Persons> Person { get; set; }
+        //public ICollection<Persons> Person { get; set; }
 
 
     }

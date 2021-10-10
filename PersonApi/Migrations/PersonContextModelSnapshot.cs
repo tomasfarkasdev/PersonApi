@@ -36,7 +36,7 @@ namespace PersonApi.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int?>("ManagerIdId")
+                    b.Property<int?>("ManagerId")
                         .HasColumnType("int");
 
                     b.Property<string>("PersonCode")
@@ -46,7 +46,7 @@ namespace PersonApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ManagerIdId");
+                    b.HasIndex("ManagerId");
 
                     b.ToTable("Persons");
                 });
@@ -76,11 +76,11 @@ namespace PersonApi.Migrations
 
             modelBuilder.Entity("PersonApi.Models.Persons", b =>
                 {
-                    b.HasOne("PersonApi.Models.Persons", "ManagerId")
-                        .WithMany("Person")
-                        .HasForeignKey("ManagerIdId");
+                    b.HasOne("PersonApi.Models.Persons", "Manager")
+                        .WithMany()
+                        .HasForeignKey("ManagerId");
 
-                    b.Navigation("ManagerId");
+                    b.Navigation("Manager");
                 });
 
             modelBuilder.Entity("PersonApi.Models.TimeOffs", b =>
@@ -94,8 +94,6 @@ namespace PersonApi.Migrations
 
             modelBuilder.Entity("PersonApi.Models.Persons", b =>
                 {
-                    b.Navigation("Person");
-
                     b.Navigation("TimeOff");
                 });
 #pragma warning restore 612, 618
