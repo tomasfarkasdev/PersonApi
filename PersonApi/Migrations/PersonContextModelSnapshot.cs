@@ -28,20 +28,17 @@ namespace PersonApi.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ManagerId")
                         .HasColumnType("int");
 
                     b.Property<string>("PersonCode")
                         .IsRequired()
-                        .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
@@ -58,7 +55,7 @@ namespace PersonApi.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("PersonId")
@@ -86,15 +83,10 @@ namespace PersonApi.Migrations
             modelBuilder.Entity("PersonApi.Models.TimeOffs", b =>
                 {
                     b.HasOne("PersonApi.Models.Persons", "Person")
-                        .WithMany("TimeOff")
+                        .WithMany()
                         .HasForeignKey("PersonId");
 
                     b.Navigation("Person");
-                });
-
-            modelBuilder.Entity("PersonApi.Models.Persons", b =>
-                {
-                    b.Navigation("TimeOff");
                 });
 #pragma warning restore 612, 618
         }

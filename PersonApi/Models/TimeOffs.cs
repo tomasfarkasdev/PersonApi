@@ -14,14 +14,18 @@ namespace PersonApi.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
 
-        public DateTime EndDate { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime? EndDate { get; set; }
 
         /// <summary>
         /// Navigation Properties
         /// </summary>
-        //public virtual Persons Person { get; set; }
-        public Persons Person { get; set; }
+        [ForeignKey("PersonId")]
+        public virtual Persons Person { get; set; }
+        //public Persons Person { get; set; }
     }
 }
