@@ -17,5 +17,11 @@ namespace PersonApi.Models
 
         public DbSet<TimeOffs> TimeOffs { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Persons>().ToTable("Persons");
+            modelBuilder.Entity<TimeOffs>().ToTable("TimeOffs");
+
+        }
     }
 }

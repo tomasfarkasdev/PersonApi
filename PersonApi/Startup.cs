@@ -31,8 +31,8 @@ namespace PersonApi
 
             services.AddControllers();
 
-            services.AddDbContext<PersonContext>(opt =>
-                                               opt.UseInMemoryDatabase("PersonsDB"));
+            services.AddDbContext<PersonContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //services.AddSwaggerGen(c =>
             //{
             //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "PersonApi", Version = "v1" });
