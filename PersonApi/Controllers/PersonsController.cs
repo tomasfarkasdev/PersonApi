@@ -10,6 +10,7 @@ using PersonApi.Models;
 namespace PersonApi.Controllers
 {
     [Route("api/[controller]")]
+    //[Route("api/[controller]/[action]")]
     [ApiController]
     public class PersonsController : ControllerBase
     {
@@ -40,6 +41,21 @@ namespace PersonApi.Controllers
 
             return persons;
         }
+
+        // GET: api/Persons/GetManagerActiveTimeoffs/5
+        //[HttpGet("apimethod/{id}")]
+        //[HttpGet("[controller]/[action]/{id}")]
+        //public async Task<ActionResult<Persons>> GetManagerActiveTimeoffs(int id)
+        //{
+        //    var persons = await _context.Peresons.FindAsync(id);
+
+        //    if (persons == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return persons;
+        //}
 
         // PUT: api/Persons/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

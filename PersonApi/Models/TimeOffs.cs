@@ -25,7 +25,7 @@ namespace PersonApi.Models
         /// Navigation Properties
         /// </summary>
         [ForeignKey("PersonId")]
-        public virtual Persons Person { get; set; }
-        //public Persons Person { get; set; }
+        public int PersonId { get; set; }
+        public Persons Person { get; set; }
     }
 }

@@ -28,12 +28,10 @@ namespace PersonApi.Models
         /// <summary>
         /// Navigation Properties
         /// </summary>
-        //public ICollection<TimeOffs> TimeOff { get; set; }
+        public ICollection<TimeOffs> TimeOff { get; set; }
 
         public Persons Manager { get; set; }
         //public virtual Persons Manager { get; set; }
-
-        //public ICollection<Persons> Person { get; set; }
 
 
     }

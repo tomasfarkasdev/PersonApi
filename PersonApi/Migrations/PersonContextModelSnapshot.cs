@@ -58,7 +58,7 @@ namespace PersonApi.Migrations
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("PersonId")
+                    b.Property<int>("PersonId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
@@ -83,10 +83,17 @@ namespace PersonApi.Migrations
             modelBuilder.Entity("PersonApi.Models.TimeOffs", b =>
                 {
                     b.HasOne("PersonApi.Models.Persons", "Person")
-                        .WithMany()
-                        .HasForeignKey("PersonId");
+                        .WithMany("TimeOff")
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("PersonApi.Models.Persons", b =>
+                {
+                    b.Navigation("TimeOff");
                 });
 #pragma warning restore 612, 618
         }
